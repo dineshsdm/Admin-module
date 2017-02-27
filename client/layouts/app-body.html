@@ -1,0 +1,18 @@
+<template name="App_body">
+    {{> app_navHeader}}
+    <main>
+        <section class="row">
+            <section class="col s12 m12 l12">
+            <!--     
+                {{#if currentUser}}
+                <section class="dash-links">
+                    {{> breadcrumb}}
+                </section>
+                {{/if}} 
+            -->
+                {{> Template.dynamic template=main}}
+                {{> sAlert}}
+            </section>
+        </section>
+    </main>
+</template>

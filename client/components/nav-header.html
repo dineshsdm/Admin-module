@@ -1,0 +1,30 @@
+<template name="app_navHeader">
+    <header class="aap-navheader">
+        <section class="row head-brk navbar-fixed">
+            <nav class="col s12">
+                <section class="nav-wrapper">
+                    <a href="/dashboard" class="brand-logo"><img src="images/top-img.png" alt=""/></a>                    
+                    <ul class="right">
+                        {{#if currentUser}}
+                            <li class="logout"><a >{{_ 'Logout'}}</a></li>
+                        {{/if}}
+                    </ul>
+                </section>
+            </nav>
+        </section>
+    <!-- <section class="container"> -->
+        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+    <!-- </section> -->
+    <ul id="nav-mobile" class="side-nav left-bar fixed">
+        {{#if currentUser}}
+            <li class="admin-pro"></li>
+            <li class="bold {{activeClass 'dashboard'}}"><a href="/dashboard"  class="waves-effect waves-tea"> Dashboard</a></li>
+            <li class="bold {{activeClass 'users'}}"><a href="/users" class="waves-effect"> User Management</a></li>
+            <li class="bold {{activeClass 'dishes'}}"><a href="/dishes" class="
+            <li class="bold logout"><a class="waves-effect"> {{_ 'Logout'}}</a></li>
+        {{/if}}
+    </ul>
+    </header>
+</template>

@@ -1,0 +1,99 @@
+<!-- View user modal -->
+<template name="view_user">
+    <div class="modal-header">
+        <h5>User Information</h5>
+    </div>
+    <div id="addUserDiv">
+        <div class="modal-content">
+	    <div class="modal-wrapper">
+		<div class="row">
+		<div class="col m3">
+		    <div class="user-image-round">
+			{{#if userData.profile.avatarId}}
+			    <img src="{{userData.profile.avatar}}" class="responsive-img" alt=""/>
+			{{else}}
+			    <img src="images/no-image.jpg" alt=""/>
+			{{/if}}
+		    </div>
+		</div>
+	
+		<div class="col m9 censusdetail">
+		    <div class="rb1">
+			<div class="row">
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>First Name:</strong> {{userData.profile.firstname}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>Last Name:</strong> {{userData.profile.lastname}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>Email:</strong> {{userData.emails.[0].address}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>Zip Code:</strong> {{userData.profile.zip_code}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>No. of Followers:</strong> {{userData.followers}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>No. of Following:</strong> {{userData.following}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>No. of Dishes:</strong> {{userData.dishes.length}}
+			    </div>
+			    <div class="input-field col l6 m6 s6 large">
+				    <strong>Bio:</strong> {{#if userData.profile.bio}} {{userData.profile.bio}} {{else}} -- {{/if}}
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </div>
+		<div class="row">
+		<div class="col s12 post-heading">
+		    <strong>Reviews posted by the user:</strong>
+		    {{#unless userData.posts}}
+			    <i>Not found.</i>
+		    {{/unless}}
+		</div>
+	    </div>
+		<div class="row">
+		    
+		{{#each userData.posts}}
+			<div class="input-field col m2 s6">
+			    <div class="user-card card">
+				<div class="image-dish card-image">
+					{{#if imageId}}
+						<img src="/uploads/dishes/{{imageId}}.{{extension}}" />
+					{{else}}
+						<img src="/{{videoThumb}}" />
+					{{/if}}
+				</div>
+				<div class="card-bottom">
+				    <div class="res-detail">
+					<p>{{name}}</p>
+					<p>{{restaurant}}</p>
+				    </div>
+				    <p class="rating">
+					{{#each getNumber rating}}
+					<span><img src="images/fill-star.png" alt=""/></span>
+					{{/each}}
+					{{#if checkHalfStar rating}}
+					<span><img src="images/half-star.png" alt=""/></span>
+					{{/if}}
+					{{#each printEmptyStar rating}}
+					<span><img src="images/empty-star.png" alt=""/></span>
+					{{/each}}
+				    </p>
+				</div>
+			    </div>
+			</div>	
+		{{/each}}
+	    </div>
+	
+	    </div>
+	    <div class="modal-footer">
+		<a href="javascript:void(0);" id="closeModal"  class="waves-effect waves-light btn btn-flat close-button">Close</a>
+	    </div>
+	</div>
+    </div>
+</template>

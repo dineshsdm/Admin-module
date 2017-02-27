@@ -1,0 +1,44 @@
+<template name="setting">
+    <div class="col s12">
+	<div class="main-bgw">
+	    <section class="col s12 bt-shadow">
+		<!-- {{#if settings.length}} -->
+		<form id="setting" name="setting" class="row" data-parsley-validate>
+		    <div class="col s12">
+			<div class="row">
+			    <div class="col s6">
+				<h1 class="main-heading editbt edit-title">
+				    Settings
+				</h1>
+				<div class="input-field">
+				    <input type="text" name="word" id="word" value="" data-parsley-maxlength="25" data-parsley-keystring="true">
+				    <label for="word" class="">Add inappropriate word</label>
+				</div>
+				<div class="input-field">
+				    <input type="text" name="distance" id="distance" value="{{settings.[0].distance}}" min="1" data-parsley-type="digits" data-parsley-trigger="keyup" required>
+				    <label for="distance" class="{{#if settings.[0].distance}} active {{/if}}">Distance</label>
+				</div>
+			    </div>
+			    
+		
+			    {{#if words}}
+					<div class="col s6 scroll-words text-right font-size14">
+						<a href="" class="manageWords">Manage Inappropriate Words</a>
+					    <!-- <h1 class="main-heading editbt edit-title">
+							<a href="" class="manageWords">Manage In-Appropriate Words</a>
+					    </h1> --> 
+					</div>
+			    {{/if}}
+			</div>
+		    </div>
+		    <div class="col s12">
+			<button class="btn waves-effect waves-light blue" type="submit" >Update</button>
+		    </div>
+		</form>
+		<!-- {{else}}
+		Loading...
+		{{/if}} -->
+	    </section>
+	</div>
+    </div>
+</template>

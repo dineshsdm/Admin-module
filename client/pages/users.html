@@ -1,0 +1,26 @@
+<template name="user_body">
+    <div class="col s12">
+        <div class="main-bgw">
+            <div class="content-right">
+                <div class="align-heading">
+                 <h1 class="main-heading editbt">
+                    <strong>U</strong>ser <strong>M</strong>anagement
+                </h1>  
+                {{#if userC}}
+                    <a href="/export_csv_users" class="btn waves-effect waves-light blue" target='_blank'>Download the CSV</a>
+                {{else}}
+                    <a href="javascript:void(0);" class="btn waves-effect waves-light blue alert-msg">Download the CSV</a>
+                {{/if}}      
+                </div>
+                <div class="clr"></div>     
+                <div class="addnew-table">  {{> tabular table=TabularUserTables.Userlist class="table bordered" id="usertb"}}</div>
+            </div>
+        </div>
+    </div>
+    <div id="openUserModal" class="modal lesson-popup modal-fixed-footer">  
+        {{> view_user}}
+    </div>
+    <div id="openEditModal" class="modal lesson-popup modal-fixed-footer">  
+        {{> edit_user}}
+    </div>
+</template>

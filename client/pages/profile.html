@@ -1,0 +1,70 @@
+<template name="profile">
+    <div class="col s12">
+        <div class="main-bgw">        
+            <section class="col s12 pt-detail bt-shadow">
+		        <section class="col s12 m4 l3 detail-pic-pateint">
+		        	<div class="image-wrap">
+			        	<div class="img-box">
+					        {{#if currentUser}}
+					        	{{#if currentUser.profile}}
+					        		{{#if currentUser.profile.avatar}}
+					        			<img src="{{currentUser.profile.avatar}}" class="responsive-img" alt=""/>
+					        		{{else}}
+										<img src="images/no-image.jpg" class="responsive-img" alt=""/>
+					        		{{/if}}
+					        	{{else}}
+									<img src="images/no-image.jpg" class="responsive-img" alt=""/>
+					        	{{/if}}
+					       	{{/if}}
+				       	</div>
+				       	{{#unless loadingImage}}
+					       	<div class="icon-wrap">	
+						       	<p class="change-pic"><a href="javascript:void(0);" class="profile-pic"><i class="material-icons">mode_edit</i></a></p>
+						       	
+						        {{#if currentUser}}
+						        	{{#if currentUser.profile}}
+						        		{{#if currentUser.profile.avatar}}
+						        			<p class="remove-pic">
+						        				<a href="javascript:void(0);" class="profile-pic"><i class="material-icons">delete</i>
+						        				</a>
+						        			</p>
+						        		{{/if}}
+					        		{{/if}}
+					        	{{/if}}
+				        	</div>
+			        	{{/unless}}
+			       	</div>
+			       	<div class="row">
+			        	{{#if loadingImage}}
+				       		<p>Loading...</p> 
+				       	{{/if}}
+					</div>
+		        </section>
+		        <section class="col s12  m8 l9 content-ptdetail ">
+		        	<div class="row user-wrap">
+		        		<a href="/edit_profile" class="btn-floating  waves-effect waves-light blue detailedit"><i class="material-icons">mode_edit</i></a>
+		        		
+			        	<div class="col s12">
+				            <p>
+				            	<span class="user-title">Email</span>
+				            	<span class="user-deta">{{currentUser.emails.[0].address}}</span>
+				            </p>
+				            <p>
+				            	<span class="user-title">First Name</span>
+				            	<span class="user-deta">{{#if currentUser.profile.firstname}} {{currentUser.profile.firstname}} {{else}} -- {{/if}}</span>
+				            </p>
+				            <p>
+				            	<span class="user-title">Last Name</span>
+				            	<span class="user-deta">{{#if currentUser.profile.lastname}}  {{currentUser.profile.lastname}} {{else}} -- {{/if}}</span>
+				            </p>
+				            <p>
+				            	<span class="user-title">Phone Number</span>
+				            	<span class="user-deta">{{#if currentUser.profile.phone}}  {{currentUser.profile.phone}} {{else}} -- {{/if}}</span>
+				            </p>
+			            </div>
+			        </div>			        
+		        </section> 
+		    </section>
+        </div>
+    </div>
+</template>

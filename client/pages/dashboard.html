@@ -1,0 +1,22 @@
+<template name="dashboard_body">
+    <section class="top-content">
+        <div class="row">
+            <div class="col s4 padding-left">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Total <span class="block">Users</span></h4>
+                        <div class="total-pt users-count">
+                            <div class="content-circle orange-bdr valign-wrapper"> <span class="valign"> {{Counts.users}}</span> </div>
+                        </div>
+                        <div class="right-align hide-sm active-inactive valign-wrapper">
+                            <div class="valign">
+                                <p>Active<span>{{Counts.activeUser}}</span></p>
+                                <p>Inactive<span>{{Counts.inActiveUser}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+</template>
